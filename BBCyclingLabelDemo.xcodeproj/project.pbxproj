@@ -1,0 +1,264 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		157C343E150FD59600B0C9B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 157C343D150FD59600B0C9B1 /* UIKit.framework */; };
+		157C3440150FD59600B0C9B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 157C343F150FD59600B0C9B1 /* Foundation.framework */; };
+		157C3442150FD59600B0C9B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 157C3441150FD59600B0C9B1 /* CoreGraphics.framework */; };
+		157C3448150FD59600B0C9B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 157C3446150FD59600B0C9B1 /* InfoPlist.strings */; };
+		157C344A150FD59600B0C9B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 157C3449150FD59600B0C9B1 /* main.m */; };
+		157C344E150FD59600B0C9B1 /* BBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 157C344D150FD59600B0C9B1 /* BBAppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		157C3439150FD59600B0C9B1 /* BBCyclingLabelDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBCyclingLabelDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		157C343D150FD59600B0C9B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		157C343F150FD59600B0C9B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		157C3441150FD59600B0C9B1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		157C3445150FD59600B0C9B1 /* BBCyclingLabelDemo-Info.plist */ = {isa = PBXFileReference; path = "BBCyclingLabelDemo-Info.plist"; sourceTree = "<group>"; };
+		157C3447150FD59600B0C9B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		157C3449150FD59600B0C9B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		157C344B150FD59600B0C9B1 /* BBCyclingLabelDemo-Prefix.pch */ = {isa = PBXFileReference; path = "BBCyclingLabelDemo-Prefix.pch"; sourceTree = "<group>"; };
+		157C344C150FD59600B0C9B1 /* BBAppDelegate.h */ = {isa = PBXFileReference; path = BBAppDelegate.h; sourceTree = "<group>"; };
+		157C344D150FD59600B0C9B1 /* BBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		157C3436150FD59600B0C9B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				157C343E150FD59600B0C9B1 /* UIKit.framework in Frameworks */,
+				157C3440150FD59600B0C9B1 /* Foundation.framework in Frameworks */,
+				157C3442150FD59600B0C9B1 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		157C342E150FD59600B0C9B1 = {
+			isa = PBXGroup;
+			children = (
+				157C3443150FD59600B0C9B1 /* BBCyclingLabelDemo */,
+				157C343C150FD59600B0C9B1 /* Frameworks */,
+				157C343A150FD59600B0C9B1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		157C343A150FD59600B0C9B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				157C3439150FD59600B0C9B1 /* BBCyclingLabelDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		157C343C150FD59600B0C9B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				157C343D150FD59600B0C9B1 /* UIKit.framework */,
+				157C343F150FD59600B0C9B1 /* Foundation.framework */,
+				157C3441150FD59600B0C9B1 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		157C3443150FD59600B0C9B1 /* BBCyclingLabelDemo */ = {
+			isa = PBXGroup;
+			children = (
+				157C344C150FD59600B0C9B1 /* BBAppDelegate.h */,
+				157C344D150FD59600B0C9B1 /* BBAppDelegate.m */,
+				157C3444150FD59600B0C9B1 /* Supporting Files */,
+			);
+			path = BBCyclingLabelDemo;
+			sourceTree = "<group>";
+		};
+		157C3444150FD59600B0C9B1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				157C3445150FD59600B0C9B1 /* BBCyclingLabelDemo-Info.plist */,
+				157C3446150FD59600B0C9B1 /* InfoPlist.strings */,
+				157C3449150FD59600B0C9B1 /* main.m */,
+				157C344B150FD59600B0C9B1 /* BBCyclingLabelDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		157C3438150FD59600B0C9B1 /* BBCyclingLabelDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 157C3451150FD59600B0C9B1 /* Build configuration list for PBXNativeTarget "BBCyclingLabelDemo" */;
+			buildPhases = (
+				157C3435150FD59600B0C9B1 /* Sources */,
+				157C3436150FD59600B0C9B1 /* Frameworks */,
+				157C3437150FD59600B0C9B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BBCyclingLabelDemo;
+			productName = BBCyclingLabelDemo;
+			productReference = 157C3439150FD59600B0C9B1 /* BBCyclingLabelDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		157C3430150FD59600B0C9B1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BB;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 157C3433150FD59600B0C9B1 /* Build configuration list for PBXProject "BBCyclingLabelDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 157C342E150FD59600B0C9B1;
+			productRefGroup = 157C343A150FD59600B0C9B1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				157C3438150FD59600B0C9B1 /* BBCyclingLabelDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		157C3437150FD59600B0C9B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				157C3448150FD59600B0C9B1 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		157C3435150FD59600B0C9B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				157C344A150FD59600B0C9B1 /* main.m in Sources */,
+				157C344E150FD59600B0C9B1 /* BBAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		157C3446150FD59600B0C9B1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				157C3447150FD59600B0C9B1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		157C344F150FD59600B0C9B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		157C3450150FD59600B0C9B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		157C3452150FD59600B0C9B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBCyclingLabelDemo/BBCyclingLabelDemo-Prefix.pch";
+				INFOPLIST_FILE = "BBCyclingLabelDemo/BBCyclingLabelDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		157C3453150FD59600B0C9B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBCyclingLabelDemo/BBCyclingLabelDemo-Prefix.pch";
+				INFOPLIST_FILE = "BBCyclingLabelDemo/BBCyclingLabelDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		157C3433150FD59600B0C9B1 /* Build configuration list for PBXProject "BBCyclingLabelDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				157C344F150FD59600B0C9B1 /* Debug */,
+				157C3450150FD59600B0C9B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		157C3451150FD59600B0C9B1 /* Build configuration list for PBXNativeTarget "BBCyclingLabelDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				157C3452150FD59600B0C9B1 /* Debug */,
+				157C3453150FD59600B0C9B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 157C3430150FD59600B0C9B1 /* Project object */;
+}
