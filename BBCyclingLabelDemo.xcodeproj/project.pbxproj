@@ -7,25 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		156C66D2151036E600E6A5CB /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 156C66D0151036E600E6A5CB /* Background.png */; };
+		156C66D3151036E600E6A5CB /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 156C66D1151036E600E6A5CB /* Background@2x.png */; };
 		157C343E150FD59600B0C9B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 157C343D150FD59600B0C9B1 /* UIKit.framework */; };
 		157C3440150FD59600B0C9B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 157C343F150FD59600B0C9B1 /* Foundation.framework */; };
 		157C3442150FD59600B0C9B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 157C3441150FD59600B0C9B1 /* CoreGraphics.framework */; };
-		157C3448150FD59600B0C9B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 157C3446150FD59600B0C9B1 /* InfoPlist.strings */; };
-		157C344A150FD59600B0C9B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 157C3449150FD59600B0C9B1 /* main.m */; };
-		157C344E150FD59600B0C9B1 /* BBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 157C344D150FD59600B0C9B1 /* BBAppDelegate.m */; };
+		157C3482150FD65100B0C9B1 /* BBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 157C347B150FD65100B0C9B1 /* BBAppDelegate.m */; };
+		157C3484150FD65100B0C9B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 157C347F150FD65100B0C9B1 /* InfoPlist.strings */; };
+		157C3485150FD65100B0C9B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 157C3481150FD65100B0C9B1 /* main.m */; };
+		157C3489150FD6F700B0C9B1 /* BBCyclingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 157C3488150FD6F700B0C9B1 /* BBCyclingLabel.m */; };
+		157C348E150FEBF400B0C9B1 /* BBCyclingLabelDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 157C348D150FEBF400B0C9B1 /* BBCyclingLabelDemo.storyboard */; };
+		157C3495150FEE7A00B0C9B1 /* BBRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157C3494150FEE7A00B0C9B1 /* BBRootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		156C66D0151036E600E6A5CB /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		156C66D1151036E600E6A5CB /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
 		157C3439150FD59600B0C9B1 /* BBCyclingLabelDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBCyclingLabelDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		157C343D150FD59600B0C9B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		157C343F150FD59600B0C9B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		157C3441150FD59600B0C9B1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		157C3445150FD59600B0C9B1 /* BBCyclingLabelDemo-Info.plist */ = {isa = PBXFileReference; path = "BBCyclingLabelDemo-Info.plist"; sourceTree = "<group>"; };
-		157C3447150FD59600B0C9B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		157C3449150FD59600B0C9B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		157C344B150FD59600B0C9B1 /* BBCyclingLabelDemo-Prefix.pch */ = {isa = PBXFileReference; path = "BBCyclingLabelDemo-Prefix.pch"; sourceTree = "<group>"; };
-		157C344C150FD59600B0C9B1 /* BBAppDelegate.h */ = {isa = PBXFileReference; path = BBAppDelegate.h; sourceTree = "<group>"; };
-		157C344D150FD59600B0C9B1 /* BBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAppDelegate.m; sourceTree = "<group>"; };
+		157C347A150FD65100B0C9B1 /* BBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAppDelegate.h; sourceTree = "<group>"; };
+		157C347B150FD65100B0C9B1 /* BBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAppDelegate.m; sourceTree = "<group>"; };
+		157C347D150FD65100B0C9B1 /* BBCyclingLabelDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BBCyclingLabelDemo-Info.plist"; sourceTree = "<group>"; };
+		157C347E150FD65100B0C9B1 /* BBCyclingLabelDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBCyclingLabelDemo-Prefix.pch"; sourceTree = "<group>"; };
+		157C3480150FD65100B0C9B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		157C3481150FD65100B0C9B1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		157C3487150FD6F700B0C9B1 /* BBCyclingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCyclingLabel.h; sourceTree = "<group>"; };
+		157C3488150FD6F700B0C9B1 /* BBCyclingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCyclingLabel.m; sourceTree = "<group>"; };
+		157C348D150FEBF400B0C9B1 /* BBCyclingLabelDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BBCyclingLabelDemo.storyboard; sourceTree = "<group>"; };
+		157C3493150FEE7A00B0C9B1 /* BBRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRootViewController.h; sourceTree = "<group>"; };
+		157C3494150FEE7A00B0C9B1 /* BBRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBRootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,9 +54,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		156C66CE151036E600E6A5CB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				156C66CF151036E600E6A5CB /* Image */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		156C66CF151036E600E6A5CB /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				156C66D0151036E600E6A5CB /* Background.png */,
+				156C66D1151036E600E6A5CB /* Background@2x.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		157C342E150FD59600B0C9B1 = {
 			isa = PBXGroup;
 			children = (
+				157C3486150FD68E00B0C9B1 /* BBCyclingLabel */,
 				157C3443150FD59600B0C9B1 /* BBCyclingLabelDemo */,
 				157C343C150FD59600B0C9B1 /* Frameworks */,
 				157C343A150FD59600B0C9B1 /* Products */,
@@ -72,22 +102,43 @@
 		157C3443150FD59600B0C9B1 /* BBCyclingLabelDemo */ = {
 			isa = PBXGroup;
 			children = (
-				157C344C150FD59600B0C9B1 /* BBAppDelegate.h */,
-				157C344D150FD59600B0C9B1 /* BBAppDelegate.m */,
-				157C3444150FD59600B0C9B1 /* Supporting Files */,
+				157C3479150FD65100B0C9B1 /* Classes */,
+				157C347C150FD65100B0C9B1 /* Other */,
+				156C66CE151036E600E6A5CB /* Resources */,
 			);
 			path = BBCyclingLabelDemo;
 			sourceTree = "<group>";
 		};
-		157C3444150FD59600B0C9B1 /* Supporting Files */ = {
+		157C3479150FD65100B0C9B1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				157C3445150FD59600B0C9B1 /* BBCyclingLabelDemo-Info.plist */,
-				157C3446150FD59600B0C9B1 /* InfoPlist.strings */,
-				157C3449150FD59600B0C9B1 /* main.m */,
-				157C344B150FD59600B0C9B1 /* BBCyclingLabelDemo-Prefix.pch */,
+				157C347A150FD65100B0C9B1 /* BBAppDelegate.h */,
+				157C347B150FD65100B0C9B1 /* BBAppDelegate.m */,
+				157C3493150FEE7A00B0C9B1 /* BBRootViewController.h */,
+				157C3494150FEE7A00B0C9B1 /* BBRootViewController.m */,
 			);
-			name = "Supporting Files";
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		157C347C150FD65100B0C9B1 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				157C348D150FEBF400B0C9B1 /* BBCyclingLabelDemo.storyboard */,
+				157C347D150FD65100B0C9B1 /* BBCyclingLabelDemo-Info.plist */,
+				157C347E150FD65100B0C9B1 /* BBCyclingLabelDemo-Prefix.pch */,
+				157C347F150FD65100B0C9B1 /* InfoPlist.strings */,
+				157C3481150FD65100B0C9B1 /* main.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		157C3486150FD68E00B0C9B1 /* BBCyclingLabel */ = {
+			isa = PBXGroup;
+			children = (
+				157C3487150FD6F700B0C9B1 /* BBCyclingLabel.h */,
+				157C3488150FD6F700B0C9B1 /* BBCyclingLabel.m */,
+			);
+			path = BBCyclingLabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +192,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				157C3448150FD59600B0C9B1 /* InfoPlist.strings in Resources */,
+				157C3484150FD65100B0C9B1 /* InfoPlist.strings in Resources */,
+				157C348E150FEBF400B0C9B1 /* BBCyclingLabelDemo.storyboard in Resources */,
+				156C66D2151036E600E6A5CB /* Background.png in Resources */,
+				156C66D3151036E600E6A5CB /* Background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,18 +206,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				157C344A150FD59600B0C9B1 /* main.m in Sources */,
-				157C344E150FD59600B0C9B1 /* BBAppDelegate.m in Sources */,
+				157C3482150FD65100B0C9B1 /* BBAppDelegate.m in Sources */,
+				157C3485150FD65100B0C9B1 /* main.m in Sources */,
+				157C3489150FD6F700B0C9B1 /* BBCyclingLabel.m in Sources */,
+				157C3495150FEE7A00B0C9B1 /* BBRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		157C3446150FD59600B0C9B1 /* InfoPlist.strings */ = {
+		157C347F150FD65100B0C9B1 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				157C3447150FD59600B0C9B1 /* en */,
+				157C3480150FD65100B0C9B1 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -220,8 +276,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BBCyclingLabelDemo/BBCyclingLabelDemo-Prefix.pch";
-				INFOPLIST_FILE = "BBCyclingLabelDemo/BBCyclingLabelDemo-Info.plist";
+				GCC_PREFIX_HEADER = "BBCyclingLabelDemo/Other/BBCyclingLabelDemo-Prefix.pch";
+				INFOPLIST_FILE = "BBCyclingLabelDemo/Other/BBCyclingLabelDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -231,8 +287,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BBCyclingLabelDemo/BBCyclingLabelDemo-Prefix.pch";
-				INFOPLIST_FILE = "BBCyclingLabelDemo/BBCyclingLabelDemo-Info.plist";
+				GCC_PREFIX_HEADER = "BBCyclingLabelDemo/Other/BBCyclingLabelDemo-Prefix.pch";
+				INFOPLIST_FILE = "BBCyclingLabelDemo/Other/BBCyclingLabelDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -257,6 +313,7 @@
 				157C3453150FD59600B0C9B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
