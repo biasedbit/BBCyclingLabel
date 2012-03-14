@@ -1,0 +1,5 @@
+# Mac crap
+.DS_Store
+# Xcode workspace
+project.xcworkspace
+xcuserdata
