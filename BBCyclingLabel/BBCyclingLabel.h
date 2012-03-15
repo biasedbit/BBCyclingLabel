@@ -10,22 +10,21 @@
 
 typedef enum
 {
-    // Plain simple cross-fade
-    BBCyclingLabelTypeDefault = 0,
-
-    // Scales the exiting label from 1x to 2x w/ cross-fade
-    BBCyclingLabelTypeScaleFadeOut,
-    // Scales the entering label from 0.5x to 1x w/ cross-fade
-    BBCyclingLabelTypeScaleFadeIn,
-    
-    
+	// Triggers user provided pre and transition blocks
+	BBCyclingLabelTypeCustom = 0,
+    BBCyclingLabelTypeFadeIn = 1 << 0,
+	BBCyclingLabelTypeFadeOut = 1 << 1,
+	BBCyclingLabelTypeDefault = BBCyclingLabelTypeFadeIn | BBCyclingLabelTypeFadeOut,
+	BBCyclingLabelTypeZoomIn = 1 << 2,
+	BBCyclingLabelTypeZoomOut = 1 << 3,
+	// Scales the exiting label from 1x to 2x w/ cross-fade
+    BBCyclingLabelTypeScaleFadeOut = BBCyclingLabelTypeFadeIn | BBCyclingLabelTypeFadeOut | BBCyclingLabelTypeZoomOut,
+	// Scales the entering label from 0.5x to 1x w/ cross-fade
+    BBCyclingLabelTypeScaleFadeIn = BBCyclingLabelTypeFadeIn | BBCyclingLabelTypeFadeOut | BBCyclingLabelTypeZoomIn, 
     // These two move the entering label from above/below to center and exiting label up/down without cross-fade
     // It's a good idea to set the clipsToBounds property of the BBCyclingLabel to true and use this in a confined space
-    BBCyclingLabelTypeScrollUp,
-    BBCyclingLabelTypeScrollDown,
-
-    // Triggers user provided pre and transition blocks
-    BBCyclingLabelTypeCustom
+    BBCyclingLabelTypeScrollUp = 1 << 4,
+    BBCyclingLabelTypeScrollDown = 1 << 5
 } BBCyclingLabelType;
 
 
