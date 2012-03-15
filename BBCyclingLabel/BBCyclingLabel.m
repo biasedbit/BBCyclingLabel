@@ -32,7 +32,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 
 #pragma mark Private helpers
 
-- (void)setupWithType:(BBCyclingLabelType)type andTransitionDuration:(NSTimeInterval)duration;
+- (void)setupWithEffect:(BBCyclingLabelTransitionEffect)effect andDuration:(NSTimeInterval)duration;
 - (void)prepareTransitionBlocks;
 - (NSUInteger)nextLabelIndex;
 - (void)resetLabel:(UILabel*)label;
@@ -48,7 +48,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 
 #pragma mark Property synthesizers
 
-@synthesize type               = _type;
+@synthesize transitionEffect   = _transitionEffect;
 @synthesize preTransitionBlock = _preTransitionBlock;
 @synthesize transitionBlock    = _transitionBlock;
 @synthesize transitionDuration = _transitionDuration;
@@ -63,17 +63,8 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 {
     self = [super initWithFrame:frame];
     if (self != nil) {
-        [self setupWithType:BBCyclingLabelTypeDefault andTransitionDuration:kBBCyclingLabelDefaultTransitionDuration];
-    }
-
-    return self;
-}
-
-- (id)initWithFrame:(CGRect)frame andType:(BBCyclingLabelType)type
-{
-    self = [super initWithFrame:frame];
-    if (self != nil) {
-        [self setupWithType:type andTransitionDuration:kBBCyclingLabelDefaultTransitionDuration];
+        [self setupWithEffect:BBCyclingLabelTransitionEffectDefault
+                  andDuration:kBBCyclingLabelDefaultTransitionDuration];
     }
 
     return self;
@@ -83,18 +74,30 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 {
     self = [super initWithCoder:coder];
     if (self != nil) {
-        [self setupWithType:BBCyclingLabelTypeDefault andTransitionDuration:kBBCyclingLabelDefaultTransitionDuration];
+        [self setupWithEffect:BBCyclingLabelTransitionEffectDefault
+                  andDuration:kBBCyclingLabelDefaultTransitionDuration];
     }
 
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame andTransitionType:(BBCyclingLabelTransitionEffect)transitionEffect;
+{
+    self = [super initWithFrame:frame];
+    if (self != nil) {
+        [self setupWithEffect:transitionEffect
+                  andDuration:kBBCyclingLabelDefaultTransitionDuration];
+    }
+    
     return self;
 }
 
 
 #pragma mark Manual property accessors
 
-- (void)setType:(BBCyclingLabelType)type
+- (void)setTransitionEffect:(BBCyclingLabelTransitionEffect)transitionEffect
 {
-    _type = type;
+    _transitionEffect = transitionEffect;
     [self prepareTransitionBlocks];
 }
 
@@ -268,16 +271,13 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
             nextLabel.alpha = 1;
         }
     };
-
-    // TODO
+    
     void (^completionBlock)(BOOL) = ^(BOOL finished) {
-//        if (finished) {
-//            // Hide the label that was just shown and clear its text when animation finished properly.
-//            // When it doesn't finish, it means a new text change kicked in, in which case we can't hide or set to nil
-//            // as we'd be altering the next-next label.
-//            previousLabel.hidden = YES;
-//            previousLabel.text = nil;
-//        }
+        if (finished) {
+            // TODO this is kind of bugged since all transitions that include affine transforms always return finished
+            // as true, even when it doesn't finish...
+            previousLabel.hidden = YES;
+        }
     };
 
     if (animated) {
@@ -292,7 +292,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 
 #pragma mark Private helpers
 
-- (void)setupWithType:(BBCyclingLabelType)type andTransitionDuration:(NSTimeInterval)duration
+- (void)setupWithEffect:(BBCyclingLabelTransitionEffect)effect andDuration:(NSTimeInterval)duration
 {
     NSUInteger size = 2;
     NSMutableArray* labels = [NSMutableArray arrayWithCapacity:size];
@@ -312,86 +312,75 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 
     _currentLabel.hidden = NO;
 
-    self.type = type;
+    self.transitionEffect = effect;
     self.transitionDuration = duration;
 }
 
 - (void)prepareTransitionBlocks
 {
-    switch (_type) {
-        case BBCyclingLabelTypeDefault: {
-            self.preTransitionBlock = nil;
-            self.transitionBlock = nil;
-            break;
-        }
+	//if matches custom
+	if (_transitionEffect == BBCyclingLabelTransitionEffectCustom) {
+		return;
+	}
 
-        case BBCyclingLabelTypeScaleFadeOut: {
-            self.preTransitionBlock = ^(UILabel* labelToEnter) {
-                labelToEnter.transform = CGAffineTransformIdentity;
-                labelToEnter.alpha = 0;
-            };
-            self.transitionBlock = ^(UILabel* labelToExit, UILabel* labelToEnter) {
-                labelToExit.transform = CGAffineTransformMakeScale(1.5, 1.5);
-                labelToExit.alpha = 0;
-                labelToEnter.alpha = 1;
-            };
-            break;
-        }
+    BBCyclingLabelTransitionEffect type = _transitionEffect;
+	self.preTransitionBlock = ^(UILabel* labelToEnter) {
+		if (type & BBCyclingLabelTransitionEffectFadeIn) {
+			labelToEnter.alpha = 0;
+		}
 
-        case BBCyclingLabelTypeScaleFadeIn: {
-            self.preTransitionBlock = ^(UILabel* labelToEnter) {
-                labelToEnter.transform = CGAffineTransformMakeScale(0.5, 0.5);
-                labelToEnter.alpha = 0;
-            };
-            self.transitionBlock = ^(UILabel* labelToExit, UILabel* labelToEnter) {
-                labelToEnter.transform = CGAffineTransformIdentity;
-                labelToEnter.alpha = 1;
-                labelToExit.alpha = 0;
-            };
-            break;
-        }
+		if (type & BBCyclingLabelTransitionEffectZoomIn) {
+			labelToEnter.transform = CGAffineTransformMakeScale(0.5, 0.5);
+		}
 
-        case BBCyclingLabelTypeScrollUp: {
-            self.preTransitionBlock = ^(UILabel* labelToEnter) {
-                CGRect frame = labelToEnter.frame;
-                frame.origin.y = self.bounds.size.height;
-                labelToEnter.frame = frame;
-            };
-            self.transitionBlock = ^(UILabel* labelToExit, UILabel* labelToEnter) {
-                CGRect frame = labelToExit.frame;
-                frame.origin.y = 0 - frame.size.height;
-                labelToExit.frame = frame;
+		if (type & (BBCyclingLabelTransitionEffectScrollUp | BBCyclingLabelTransitionEffectScrollDown)) {
+			CGRect frame = labelToEnter.frame;
 
-                CGRect enterFrame = labelToEnter.frame;
-                enterFrame.origin.y = roundf((self.bounds.size.height / 2) - (enterFrame.size.height / 2));
-                labelToEnter.frame = enterFrame;
-            };
-            break;
-        }
+			if (type & BBCyclingLabelTransitionEffectScrollUp) {
+				frame.origin.y = self.bounds.size.height;
+			}
 
-        case BBCyclingLabelTypeScrollDown: {
-            self.preTransitionBlock = ^(UILabel* labelToEnter) {
-                CGRect frame = labelToEnter.frame;
-                frame.origin.y = 0 - frame.size.height;
-                labelToEnter.frame = frame;
-            };
-            self.transitionBlock = ^(UILabel* labelToExit, UILabel* labelToEnter) {
-                CGRect frame = labelToExit.frame;
-                frame.origin.y = self.bounds.size.height;
-                labelToExit.frame = frame;
+			if (type & BBCyclingLabelTransitionEffectScrollDown) {
+				frame.origin.y = 0 - frame.size.height;
+			}
+			labelToEnter.frame = frame;
+		}
+	};
+	self.transitionBlock = ^(UILabel* labelToExit, UILabel* labelToEnter) {
+		if (type & BBCyclingLabelTransitionEffectFadeIn) {
+			labelToEnter.alpha = 1;
+		}
 
-                CGRect enterFrame = labelToEnter.frame;
-                enterFrame.origin.y = roundf((self.bounds.size.height / 2) - (enterFrame.size.height / 2));
-                labelToEnter.frame = enterFrame;
-            };
-            break;
-        }
+		if (type & BBCyclingLabelTransitionEffectFadeOut) {
+			labelToExit.alpha = 0;
+		}
 
-        case BBCyclingLabelTypeCustom:
-        default:
-            // Do nothing, user must define them manually
-            break;
-    }
+		if (type & BBCyclingLabelTransitionEffectZoomOut) {
+			labelToExit.transform = CGAffineTransformMakeScale(1.5, 1.5);
+		}
+
+		if (type & BBCyclingLabelTransitionEffectZoomIn) {
+			labelToEnter.transform = CGAffineTransformIdentity;
+		}
+
+		if (type & (BBCyclingLabelTransitionEffectScrollUp | BBCyclingLabelTransitionEffectScrollDown)) {
+			CGRect frame = labelToExit.frame;
+			CGRect enterFrame = labelToEnter.frame;
+
+			if (type & BBCyclingLabelTransitionEffectScrollUp) {
+				frame.origin.y = 0 - frame.size.height;	
+				enterFrame.origin.y = roundf((self.bounds.size.height / 2) - (enterFrame.size.height / 2));
+			}
+
+			if (type & BBCyclingLabelTransitionEffectScrollDown) {
+				frame.origin.y = self.bounds.size.height;
+				enterFrame.origin.y = roundf((self.bounds.size.height / 2) - (enterFrame.size.height / 2));
+			}
+
+			labelToExit.frame = frame;
+			labelToEnter.frame = enterFrame;
+		}
+	};
 }
 
 - (NSUInteger)nextLabelIndex

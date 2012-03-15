@@ -79,14 +79,14 @@
     [_scrollUpLabel setText:@"scroll up label text" animated:NO];
     [_customLabel setText:@"scroll up label text" animated:NO];
 
-    _scaleOutLabel.type = BBCyclingLabelTypeScaleFadeOut;
+    _scaleOutLabel.transitionEffect = BBCyclingLabelTransitionEffectScaleFadeOut;
 
-    _scrollUpLabel.type = BBCyclingLabelTypeScrollUp;
+    _scrollUpLabel.transitionEffect = BBCyclingLabelTransitionEffectScrollUp;
     // Since scrolling involves moving the frame of the underlying labels, we need to enable bound clipping
     _scrollUpLabel.clipsToBounds = YES;
 
     // Create a custom transition animation that rotates 180º, reduces size to 0.2 and fades out the exiting label
-    _customLabel.type = BBCyclingLabelTypeCustom;
+    _customLabel.transitionEffect = BBCyclingLabelTransitionEffectCustom;
     _customLabel.preTransitionBlock = ^(UILabel* labelToEnter) {
         labelToEnter.transform = CGAffineTransformIdentity;
         labelToEnter.alpha = 0;
