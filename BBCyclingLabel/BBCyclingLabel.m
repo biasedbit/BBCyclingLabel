@@ -318,80 +318,71 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 
 - (void)prepareTransitionBlocks
 {
-    switch (_type) {
-        case BBCyclingLabelTypeDefault: {
-            self.preTransitionBlock = nil;
-            self.transitionBlock = nil;
-            break;
-        }
+	//if matches custom
+	if (_type == BBCyclingLabelTypeCustom) {
+		return;
+	}
+	
+	self.preTransitionBlock = ^(UILabel* labelToEnter) {
+		if (self.type & BBCyclingLabelTypeFadeIn) {
+			labelToEnter.alpha = 0;
+		}
+		
+		if (self.type & BBCyclingLabelTypeZoomIn) {
+			labelToEnter.transform = CGAffineTransformMakeScale(0.5, 0.5);
+		}
 
-        case BBCyclingLabelTypeScaleFadeOut: {
-            self.preTransitionBlock = ^(UILabel* labelToEnter) {
-                labelToEnter.transform = CGAffineTransformIdentity;
-                labelToEnter.alpha = 0;
-            };
-            self.transitionBlock = ^(UILabel* labelToExit, UILabel* labelToEnter) {
-                labelToExit.transform = CGAffineTransformMakeScale(1.5, 1.5);
-                labelToExit.alpha = 0;
-                labelToEnter.alpha = 1;
-            };
-            break;
-        }
+		if (self.type & (BBCyclingLabelTypeScrollUp | BBCyclingLabelTypeScrollDown)) {
+			CGRect frame = labelToEnter.frame;
+	
+			if (self.type & BBCyclingLabelTypeScrollUp) {
+				frame.origin.y = self.bounds.size.height;
+			}
 
-        case BBCyclingLabelTypeScaleFadeIn: {
-            self.preTransitionBlock = ^(UILabel* labelToEnter) {
-                labelToEnter.transform = CGAffineTransformMakeScale(0.5, 0.5);
-                labelToEnter.alpha = 0;
-            };
-            self.transitionBlock = ^(UILabel* labelToExit, UILabel* labelToEnter) {
-                labelToEnter.transform = CGAffineTransformIdentity;
-                labelToEnter.alpha = 1;
-                labelToExit.alpha = 0;
-            };
-            break;
-        }
-
-        case BBCyclingLabelTypeScrollUp: {
-            self.preTransitionBlock = ^(UILabel* labelToEnter) {
-                CGRect frame = labelToEnter.frame;
-                frame.origin.y = self.bounds.size.height;
-                labelToEnter.frame = frame;
-            };
-            self.transitionBlock = ^(UILabel* labelToExit, UILabel* labelToEnter) {
-                CGRect frame = labelToExit.frame;
-                frame.origin.y = 0 - frame.size.height;
-                labelToExit.frame = frame;
-
-                CGRect enterFrame = labelToEnter.frame;
-                enterFrame.origin.y = roundf((self.bounds.size.height / 2) - (enterFrame.size.height / 2));
-                labelToEnter.frame = enterFrame;
-            };
-            break;
-        }
-
-        case BBCyclingLabelTypeScrollDown: {
-            self.preTransitionBlock = ^(UILabel* labelToEnter) {
-                CGRect frame = labelToEnter.frame;
-                frame.origin.y = 0 - frame.size.height;
-                labelToEnter.frame = frame;
-            };
-            self.transitionBlock = ^(UILabel* labelToExit, UILabel* labelToEnter) {
-                CGRect frame = labelToExit.frame;
-                frame.origin.y = self.bounds.size.height;
-                labelToExit.frame = frame;
-
-                CGRect enterFrame = labelToEnter.frame;
-                enterFrame.origin.y = roundf((self.bounds.size.height / 2) - (enterFrame.size.height / 2));
-                labelToEnter.frame = enterFrame;
-            };
-            break;
-        }
-
-        case BBCyclingLabelTypeCustom:
-        default:
-            // Do nothing, user must define them manually
-            break;
-    }
+			if (self.type & BBCyclingLabelTypeScrollDown) {
+				frame.origin.y = 0 - frame.size.height;
+			}
+			labelToEnter.frame = frame;
+		}
+		
+		
+	};
+	self.transitionBlock = ^(UILabel* labelToExit, UILabel* labelToEnter) {
+		if (self.type & BBCyclingLabelTypeFadeIn) {
+			labelToEnter.alpha = 1;
+		}
+		
+		if (self.type & BBCyclingLabelTypeFadeOut) {
+			labelToExit.alpha = 0;
+		}
+		
+		if (self.type & BBCyclingLabelTypeZoomOut) {
+			labelToExit.transform = CGAffineTransformMakeScale(1.5, 1.5);
+		}
+		
+		if (self.type & BBCyclingLabelTypeZoomIn) {
+			labelToEnter.transform = CGAffineTransformIdentity;
+		}
+		
+		if (self.type & (BBCyclingLabelTypeScrollUp | BBCyclingLabelTypeScrollDown)) {
+			CGRect frame = labelToExit.frame;
+			CGRect enterFrame = labelToEnter.frame;
+			
+			if (self.type & BBCyclingLabelTypeScrollUp) {
+				frame.origin.y = 0 - frame.size.height;	
+				enterFrame.origin.y = roundf((self.bounds.size.height / 2) - (enterFrame.size.height / 2));
+			}
+			
+			if (self.type & BBCyclingLabelTypeScrollDown) {
+				frame.origin.y = self.bounds.size.height;
+				enterFrame.origin.y = roundf((self.bounds.size.height / 2) - (enterFrame.size.height / 2));
+			}
+			
+			labelToExit.frame = frame;
+			labelToEnter.frame = enterFrame;
+		}
+		
+	};
 }
 
 - (NSUInteger)nextLabelIndex
