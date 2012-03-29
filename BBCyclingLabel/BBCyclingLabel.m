@@ -108,7 +108,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 
 - (void)setText:(NSString*)text
 {
-    [self setText:text animated:YES];
+    [self setText:text animate:YES];
 }
 
 - (UIFont*)font
@@ -234,7 +234,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 
 #pragma mark Public methods
 
-- (void)setText:(NSString*)text animated:(BOOL)animated
+- (void)setText:(NSString*)text animate:(BOOL)animate
 {
     NSUInteger nextLabelIndex = [self nextLabelIndex];
     UILabel* nextLabel = [_labels objectAtIndex:nextLabelIndex];
@@ -280,7 +280,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
         }
     };
 
-    if (animated) {
+    if (animate) {
         // Animate the transition between both labels
         [UIView animateWithDuration:_transitionDuration animations:changeBlock completion:completionBlock];
     } else {
