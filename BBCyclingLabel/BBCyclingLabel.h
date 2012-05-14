@@ -26,10 +26,11 @@ typedef enum
 	// User must provide pre-transition and transition blocks
 	BBCyclingLabelTransitionEffectCustom = 0,
 
-    BBCyclingLabelTransitionEffectFadeIn  = 1 << 0,
-	BBCyclingLabelTransitionEffectFadeOut = 1 << 1,
-	BBCyclingLabelTransitionEffectDefault = BBCyclingLabelTransitionEffectFadeIn |
-                                            BBCyclingLabelTransitionEffectFadeOut,
+    BBCyclingLabelTransitionEffectFadeIn    = 1 << 0,
+	BBCyclingLabelTransitionEffectFadeOut   = 1 << 1,
+	BBCyclingLabelTransitionEffectCrossFade = BBCyclingLabelTransitionEffectFadeIn |
+                                              BBCyclingLabelTransitionEffectFadeOut,
+
 	BBCyclingLabelTransitionEffectZoomIn  = 1 << 2,
 	BBCyclingLabelTransitionEffectZoomOut = 1 << 3,
 
@@ -43,7 +44,9 @@ typedef enum
     // These two move the entering label from above/below to center and exiting label up/down without cross-fade
     // It's a good idea to set the clipsToBounds property of the BBCyclingLabel to true and use this in a confined space
     BBCyclingLabelTransitionEffectScrollUp   = 1 << 4,
-    BBCyclingLabelTransitionEffectScrollDown = 1 << 5
+    BBCyclingLabelTransitionEffectScrollDown = 1 << 5,
+
+    BBCyclingLabelTransitionEffectDefault = BBCyclingLabelTransitionEffectCrossFade
 } BBCyclingLabelTransitionEffect;
 
 
