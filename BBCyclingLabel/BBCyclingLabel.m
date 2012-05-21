@@ -331,69 +331,69 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 
 - (void)prepareTransitionBlocks
 {
-	//if matches custom
-	if (_transitionEffect == BBCyclingLabelTransitionEffectCustom) {
-		return;
-	}
+    //if matches custom
+    if (_transitionEffect == BBCyclingLabelTransitionEffectCustom) {
+        return;
+    }
 
     BBCyclingLabelTransitionEffect type = _transitionEffect;
-	self.preTransitionBlock = ^(UILabel* labelToEnter) {
-		if (type & BBCyclingLabelTransitionEffectFadeIn) {
-			labelToEnter.alpha = 0;
-		}
+    self.preTransitionBlock = ^(UILabel* labelToEnter) {
+        if (type & BBCyclingLabelTransitionEffectFadeIn) {
+            labelToEnter.alpha = 0;
+        }
 
-		if (type & BBCyclingLabelTransitionEffectZoomIn) {
-			labelToEnter.transform = CGAffineTransformMakeScale(0.5, 0.5);
-		}
+        if (type & BBCyclingLabelTransitionEffectZoomIn) {
+            labelToEnter.transform = CGAffineTransformMakeScale(0.5, 0.5);
+        }
 
-		if (type & (BBCyclingLabelTransitionEffectScrollUp | BBCyclingLabelTransitionEffectScrollDown)) {
-			CGRect frame = labelToEnter.frame;
+        if (type & (BBCyclingLabelTransitionEffectScrollUp | BBCyclingLabelTransitionEffectScrollDown)) {
+            CGRect frame = labelToEnter.frame;
 
-			if (type & BBCyclingLabelTransitionEffectScrollUp) {
-				frame.origin.y = self.bounds.size.height;
-			}
+            if (type & BBCyclingLabelTransitionEffectScrollUp) {
+                frame.origin.y = self.bounds.size.height;
+            }
 
-			if (type & BBCyclingLabelTransitionEffectScrollDown) {
-				frame.origin.y = 0 - frame.size.height;
-			}
-			labelToEnter.frame = frame;
-		}
-	};
-	self.transitionBlock = ^(UILabel* labelToExit, UILabel* labelToEnter) {
-		if (type & BBCyclingLabelTransitionEffectFadeIn) {
-			labelToEnter.alpha = 1;
-		}
+            if (type & BBCyclingLabelTransitionEffectScrollDown) {
+                frame.origin.y = 0 - frame.size.height;
+            }
+            labelToEnter.frame = frame;
+        }
+    };
+    self.transitionBlock = ^(UILabel* labelToExit, UILabel* labelToEnter) {
+        if (type & BBCyclingLabelTransitionEffectFadeIn) {
+            labelToEnter.alpha = 1;
+        }
 
-		if (type & BBCyclingLabelTransitionEffectFadeOut) {
-			labelToExit.alpha = 0;
-		}
+        if (type & BBCyclingLabelTransitionEffectFadeOut) {
+            labelToExit.alpha = 0;
+        }
 
-		if (type & BBCyclingLabelTransitionEffectZoomOut) {
-			labelToExit.transform = CGAffineTransformMakeScale(1.5, 1.5);
-		}
+        if (type & BBCyclingLabelTransitionEffectZoomOut) {
+            labelToExit.transform = CGAffineTransformMakeScale(1.5, 1.5);
+        }
 
-		if (type & BBCyclingLabelTransitionEffectZoomIn) {
-			labelToEnter.transform = CGAffineTransformIdentity;
-		}
+        if (type & BBCyclingLabelTransitionEffectZoomIn) {
+            labelToEnter.transform = CGAffineTransformIdentity;
+        }
 
-		if (type & (BBCyclingLabelTransitionEffectScrollUp | BBCyclingLabelTransitionEffectScrollDown)) {
-			CGRect frame = labelToExit.frame;
-			CGRect enterFrame = labelToEnter.frame;
+        if (type & (BBCyclingLabelTransitionEffectScrollUp | BBCyclingLabelTransitionEffectScrollDown)) {
+            CGRect frame = labelToExit.frame;
+            CGRect enterFrame = labelToEnter.frame;
 
-			if (type & BBCyclingLabelTransitionEffectScrollUp) {
-				frame.origin.y = 0 - frame.size.height;	
-				enterFrame.origin.y = roundf((self.bounds.size.height / 2) - (enterFrame.size.height / 2));
-			}
+            if (type & BBCyclingLabelTransitionEffectScrollUp) {
+                frame.origin.y = 0 - frame.size.height; 
+                enterFrame.origin.y = roundf((self.bounds.size.height / 2) - (enterFrame.size.height / 2));
+            }
 
-			if (type & BBCyclingLabelTransitionEffectScrollDown) {
-				frame.origin.y = self.bounds.size.height;
-				enterFrame.origin.y = roundf((self.bounds.size.height / 2) - (enterFrame.size.height / 2));
-			}
+            if (type & BBCyclingLabelTransitionEffectScrollDown) {
+                frame.origin.y = self.bounds.size.height;
+                enterFrame.origin.y = roundf((self.bounds.size.height / 2) - (enterFrame.size.height / 2));
+            }
 
-			labelToExit.frame = frame;
-			labelToEnter.frame = enterFrame;
-		}
-	};
+            labelToExit.frame = frame;
+            labelToEnter.frame = enterFrame;
+        }
+    };
 }
 
 - (NSUInteger)nextLabelIndex

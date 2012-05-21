@@ -23,16 +23,16 @@
 
 typedef enum
 {
-	// User must provide pre-transition and transition blocks
-	BBCyclingLabelTransitionEffectCustom = 0,
+    // User must provide pre-transition and transition blocks
+    BBCyclingLabelTransitionEffectCustom = 0,
 
     BBCyclingLabelTransitionEffectFadeIn    = 1 << 0,
-	BBCyclingLabelTransitionEffectFadeOut   = 1 << 1,
-	BBCyclingLabelTransitionEffectCrossFade = BBCyclingLabelTransitionEffectFadeIn |
+    BBCyclingLabelTransitionEffectFadeOut   = 1 << 1,
+    BBCyclingLabelTransitionEffectCrossFade = BBCyclingLabelTransitionEffectFadeIn |
                                               BBCyclingLabelTransitionEffectFadeOut,
 
-	BBCyclingLabelTransitionEffectZoomIn  = 1 << 2,
-	BBCyclingLabelTransitionEffectZoomOut = 1 << 3,
+    BBCyclingLabelTransitionEffectZoomIn  = 1 << 2,
+    BBCyclingLabelTransitionEffectZoomOut = 1 << 3,
 
     BBCyclingLabelTransitionEffectScaleFadeOut = BBCyclingLabelTransitionEffectFadeIn |
                                                  BBCyclingLabelTransitionEffectFadeOut |
