@@ -66,9 +66,9 @@ typedef void(^BBCyclingLabelTransitionBlock)(UILabel* labelToExit, UILabel* labe
 #pragma mark Public properties
 
 @property(assign, nonatomic) BBCyclingLabelTransitionEffect   transitionEffect;
+@property(assign, nonatomic) NSTimeInterval                   transitionDuration;
 @property(copy,   nonatomic) BBCyclingLabelPreTransitionBlock preTransitionBlock;
 @property(copy,   nonatomic) BBCyclingLabelTransitionBlock    transitionBlock;
-@property(assign, nonatomic) NSTimeInterval                   transitionDuration;
 // Same properties as UILabel, these will be propagated to the underlying labels
 @property(copy,   nonatomic) NSString*            text;
 @property(strong, nonatomic) UIFont*              font;

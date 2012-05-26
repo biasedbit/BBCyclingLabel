@@ -62,9 +62,9 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 #pragma mark Property synthesizers
 
 @synthesize transitionEffect   = _transitionEffect;
+@synthesize transitionDuration = _transitionDuration;
 @synthesize preTransitionBlock = _preTransitionBlock;
 @synthesize transitionBlock    = _transitionBlock;
-@synthesize transitionDuration = _transitionDuration;
 // Private
 @synthesize labels       = _labels;
 @synthesize currentLabel = _currentLabel;
@@ -101,7 +101,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
         [self setupWithEffect:transitionEffect
                   andDuration:kBBCyclingLabelDefaultTransitionDuration];
     }
-    
+
     return self;
 }
 
