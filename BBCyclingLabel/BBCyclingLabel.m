@@ -337,6 +337,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
     }
 
     BBCyclingLabelTransitionEffect type = _transitionEffect;
+    CGFloat currentHeight = self.bounds.size.height;
     self.preTransitionBlock = ^(UILabel* labelToEnter) {
         if (type & BBCyclingLabelTransitionEffectFadeIn) {
             labelToEnter.alpha = 0;
@@ -350,7 +351,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
             CGRect frame = labelToEnter.frame;
 
             if (type & BBCyclingLabelTransitionEffectScrollUp) {
-                frame.origin.y = self.bounds.size.height;
+                frame.origin.y = currentHeight;
             }
 
             if (type & BBCyclingLabelTransitionEffectScrollDown) {
@@ -382,12 +383,12 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 
             if (type & BBCyclingLabelTransitionEffectScrollUp) {
                 frame.origin.y = 0 - frame.size.height; 
-                enterFrame.origin.y = roundf((self.bounds.size.height / 2) - (enterFrame.size.height / 2));
+                enterFrame.origin.y = roundf((currentHeight / 2) - (enterFrame.size.height / 2));
             }
 
             if (type & BBCyclingLabelTransitionEffectScrollDown) {
-                frame.origin.y = self.bounds.size.height;
-                enterFrame.origin.y = roundf((self.bounds.size.height / 2) - (enterFrame.size.height / 2));
+                frame.origin.y = currentHeight;
+                enterFrame.origin.y = roundf((currentHeight / 2) - (enterFrame.size.height / 2));
             }
 
             labelToExit.frame = frame;
