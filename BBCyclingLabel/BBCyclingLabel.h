@@ -88,7 +88,7 @@ typedef void(^BBCyclingLabelTransitionBlock)(UILabel* labelToExit, UILabel* labe
 - (id)initWithFrame:(CGRect)frame andTransitionType:(BBCyclingLabelTransitionEffect)transitionEffect;
 
 
-#pragma mark Public methods
+#pragma mark Interface
 
 /*! Sets the text for the next label and performs a transition between current and next label (if animated is YES) */
 - (void)setText:(NSString*)text animated:(BOOL)animated;

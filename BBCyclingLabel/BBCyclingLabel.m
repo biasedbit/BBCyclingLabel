@@ -245,7 +245,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 }
 
 
-#pragma mark Public methods
+#pragma mark Interface
 
 - (void)setText:(NSString*)text animated:(BOOL)animated
 {
