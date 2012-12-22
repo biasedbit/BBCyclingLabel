@@ -31,44 +31,12 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 
 #pragma mark -
 
-@interface BBCyclingLabel ()
+@implementation BBCyclingLabel
 {
     NSUInteger _currentLabelIndex;
+    NSArray* _labels;
+    UILabel* _currentLabel;
 }
-
-
-#pragma mark Private properties
-
-@property(strong, nonatomic) NSArray* labels;
-@property(strong, nonatomic) UILabel* currentLabel;
-
-
-#pragma mark Private helpers
-
-- (void)setupWithEffect:(BBCyclingLabelTransitionEffect)effect andDuration:(NSTimeInterval)duration;
-- (void)prepareTransitionBlocks;
-- (NSUInteger)nextLabelIndex;
-- (void)resetLabel:(UILabel*)label;
-
-@end
-
-
-
-#pragma mark -
-
-@implementation BBCyclingLabel
-
-
-#pragma mark Property synthesizers
-
-@synthesize transitionEffect   = _transitionEffect;
-@synthesize transitionDuration = _transitionDuration;
-@synthesize preTransitionBlock = _preTransitionBlock;
-@synthesize transitionBlock    = _transitionBlock;
-// Private
-@synthesize labels       = _labels;
-@synthesize currentLabel = _currentLabel;
-
 
 #pragma mark Creation
 
@@ -106,7 +74,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 }
 
 
-#pragma mark Manual property accessors
+#pragma mark Properties
 
 - (void)setTransitionEffect:(BBCyclingLabelTransitionEffect)transitionEffect
 {
@@ -260,7 +228,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
     [self resetLabel:nextLabel];
 
     // Update both current label index and current label pointer
-    self.currentLabel = nextLabel;
+    _currentLabel = nextLabel;
     _currentLabelIndex = nextLabelIndex;
 
     // Prepare the next label before the transition animation
@@ -320,8 +288,8 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
     }
 
     _currentLabelIndex = 0;
-    self.currentLabel = [labels objectAtIndex:0];
-    self.labels = labels;
+    _currentLabel = [labels objectAtIndex:0];
+    _labels = labels;
 
     _currentLabel.hidden = NO;
 

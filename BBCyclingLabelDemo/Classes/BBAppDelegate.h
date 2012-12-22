@@ -24,7 +24,7 @@
 @interface BBAppDelegate : UIResponder <UIApplicationDelegate>
 
 
-#pragma mark Public properties
+#pragma mark Properties
 
 @property(strong, nonatomic) UIWindow* window;
 

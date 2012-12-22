@@ -63,7 +63,7 @@ typedef void(^BBCyclingLabelTransitionBlock)(UILabel* labelToExit, UILabel* labe
 @interface BBCyclingLabel : UIView
 
 
-#pragma mark Public properties
+#pragma mark Properties
 
 @property(assign, nonatomic) BBCyclingLabelTransitionEffect   transitionEffect;
 @property(assign, nonatomic) NSTimeInterval                   transitionDuration;

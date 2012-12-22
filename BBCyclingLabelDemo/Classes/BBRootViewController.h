@@ -25,7 +25,7 @@
 
 #pragma mark -
 
-@interface BBRootViewController : UIViewController
+@interface BBRootViewController : UIViewController <UITextFieldDelegate>
 
 
 #pragma mark Interface builder wiring

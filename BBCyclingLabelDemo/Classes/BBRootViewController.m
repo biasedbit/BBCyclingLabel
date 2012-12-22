@@ -25,24 +25,7 @@
 
 #pragma mark -
 
-@interface BBRootViewController () <UITextFieldDelegate>
-
-@end
-
-
-
-#pragma mark -
-
 @implementation BBRootViewController
-
-
-#pragma mark Property synthesizers
-
-@synthesize defaultLabel  = _defaultLabel;
-@synthesize scaleOutLabel = _scaleOutLabel;
-@synthesize scrollUpLabel = _scrollUpLabel;
-@synthesize customLabel   = _customLabel;
-@synthesize textField     = _textField;
 
 
 #pragma mark UIViewController
