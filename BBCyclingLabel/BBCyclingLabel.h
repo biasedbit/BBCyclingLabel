@@ -65,21 +65,21 @@ typedef void(^BBCyclingLabelTransitionBlock)(UILabel* labelToExit, UILabel* labe
 
 #pragma mark Properties
 
-@property(assign, nonatomic) BBCyclingLabelTransitionEffect   transitionEffect;
-@property(assign, nonatomic) NSTimeInterval                   transitionDuration;
+@property(assign, nonatomic) BBCyclingLabelTransitionEffect transitionEffect;
+@property(assign, nonatomic) NSTimeInterval transitionDuration;
 @property(copy,   nonatomic) BBCyclingLabelPreTransitionBlock preTransitionBlock;
-@property(copy,   nonatomic) BBCyclingLabelTransitionBlock    transitionBlock;
+@property(copy,   nonatomic) BBCyclingLabelTransitionBlock transitionBlock;
 // Same properties as UILabel, these will be propagated to the underlying labels
-@property(copy,   nonatomic) NSString*            text;
-@property(strong, nonatomic) UIFont*              font;
-@property(strong, nonatomic) UIColor*             textColor;
-@property(strong, nonatomic) UIColor*             shadowColor;
-@property(assign, nonatomic) CGSize               shadowOffset;
-@property(assign, nonatomic) UITextAlignment      textAlignment;
-@property(assign, nonatomic) UILineBreakMode      lineBreakMode;
-@property(assign, nonatomic) NSInteger            numberOfLines;
-@property(assign, nonatomic) BOOL                 adjustsFontSizeToFitWidth;
-@property(assign, nonatomic) CGFloat              minimumFontSize;
+@property(copy,   nonatomic) NSString* text;
+@property(strong, nonatomic) UIFont* font;
+@property(strong, nonatomic) UIColor* textColor;
+@property(strong, nonatomic) UIColor* shadowColor;
+@property(assign, nonatomic) CGSize shadowOffset;
+@property(assign, nonatomic) NSTextAlignment textAlignment;
+@property(assign, nonatomic) NSLineBreakMode lineBreakMode;
+@property(assign, nonatomic) NSInteger numberOfLines;
+@property(assign, nonatomic) BOOL adjustsFontSizeToFitWidth;
+@property(assign, nonatomic) CGFloat minimumFontSize;
 @property(assign, nonatomic) UIBaselineAdjustment baselineAdjustment;
 
 

@@ -140,24 +140,24 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
     }
 }
 
-- (UITextAlignment)textAlignment
+- (NSTextAlignment)textAlignment
 {
     return _currentLabel.textAlignment;
 }
 
-- (void)setTextAlignment:(UITextAlignment)textAlignment
+- (void)setTextAlignment:(NSTextAlignment)textAlignment
 {
     for (UILabel* label in _labels) {
         label.textAlignment = textAlignment;
     }
 }
 
-- (UILineBreakMode)lineBreakMode
+- (NSLineBreakMode)lineBreakMode
 {
     return _currentLabel.lineBreakMode;
 }
 
-- (void)setLineBreakMode:(UILineBreakMode)lineBreakMode
+- (void)setLineBreakMode:(NSLineBreakMode)lineBreakMode
 {
     for (UILabel* label in _labels) {
         label.lineBreakMode = lineBreakMode;
@@ -254,11 +254,9 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
     };
     
     void (^completionBlock)(BOOL) = ^(BOOL finished) {
-        if (finished) {
-            // TODO this is kind of bugged since all transitions that include affine transforms always return finished
-            // as true, even when it doesn't finish...
-            previousLabel.hidden = YES;
-        }
+        // TODO this is kind of bugged since all transitions that include affine transforms always return finished
+        // as true, even when it doesn't finish...
+        if (finished) previousLabel.hidden = YES;
     };
 
     if (animated) {
@@ -299,51 +297,29 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 
 - (void)prepareTransitionBlocks
 {
-    //if matches custom
-    if (_transitionEffect == BBCyclingLabelTransitionEffectCustom) {
-        return;
-    }
+    if (_transitionEffect == BBCyclingLabelTransitionEffectCustom) return;
 
     BBCyclingLabelTransitionEffect type = _transitionEffect;
     CGFloat currentHeight = self.bounds.size.height;
     self.preTransitionBlock = ^(UILabel* labelToEnter) {
-        if (type & BBCyclingLabelTransitionEffectFadeIn) {
-            labelToEnter.alpha = 0;
-        }
-
-        if (type & BBCyclingLabelTransitionEffectZoomIn) {
-            labelToEnter.transform = CGAffineTransformMakeScale(0.5, 0.5);
-        }
+        if (type & BBCyclingLabelTransitionEffectFadeIn) labelToEnter.alpha = 0;
+        if (type & BBCyclingLabelTransitionEffectZoomIn) labelToEnter.transform = CGAffineTransformMakeScale(0.5, 0.5);
 
         if (type & (BBCyclingLabelTransitionEffectScrollUp | BBCyclingLabelTransitionEffectScrollDown)) {
             CGRect frame = labelToEnter.frame;
 
-            if (type & BBCyclingLabelTransitionEffectScrollUp) {
-                frame.origin.y = currentHeight;
-            }
+            if (type & BBCyclingLabelTransitionEffectScrollUp) frame.origin.y = currentHeight;
+            if (type & BBCyclingLabelTransitionEffectScrollDown) frame.origin.y = 0 - frame.size.height;
 
-            if (type & BBCyclingLabelTransitionEffectScrollDown) {
-                frame.origin.y = 0 - frame.size.height;
-            }
             labelToEnter.frame = frame;
         }
     };
     self.transitionBlock = ^(UILabel* labelToExit, UILabel* labelToEnter) {
-        if (type & BBCyclingLabelTransitionEffectFadeIn) {
-            labelToEnter.alpha = 1;
-        }
+        if (type & BBCyclingLabelTransitionEffectFadeIn) labelToEnter.alpha = 1;
+        if (type & BBCyclingLabelTransitionEffectFadeOut) labelToExit.alpha = 0;
+        if (type & BBCyclingLabelTransitionEffectZoomOut) labelToExit.transform = CGAffineTransformMakeScale(1.5, 1.5);
 
-        if (type & BBCyclingLabelTransitionEffectFadeOut) {
-            labelToExit.alpha = 0;
-        }
-
-        if (type & BBCyclingLabelTransitionEffectZoomOut) {
-            labelToExit.transform = CGAffineTransformMakeScale(1.5, 1.5);
-        }
-
-        if (type & BBCyclingLabelTransitionEffectZoomIn) {
-            labelToEnter.transform = CGAffineTransformIdentity;
-        }
+        if (type & BBCyclingLabelTransitionEffectZoomIn) labelToEnter.transform = CGAffineTransformIdentity;
 
         if (type & (BBCyclingLabelTransitionEffectScrollUp | BBCyclingLabelTransitionEffectScrollDown)) {
             CGRect frame = labelToExit.frame;
