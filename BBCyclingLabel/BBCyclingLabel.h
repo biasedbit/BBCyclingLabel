@@ -85,7 +85,7 @@ typedef void(^BBCyclingLabelTransitionBlock)(UILabel* labelToExit, UILabel* labe
 
 #pragma mark Creation
 
-- (id)initWithFrame:(CGRect)frame andTransitionType:(BBCyclingLabelTransitionEffect)transitionEffect;
+- (instancetype)initWithFrame:(CGRect)frame andTransitionType:(BBCyclingLabelTransitionEffect)transitionEffect;
 
 
 #pragma mark Interface

@@ -40,7 +40,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
 
 #pragma mark Creation
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self != nil) {
@@ -51,7 +51,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
     return self;
 }
 
-- (id)initWithCoder:(NSCoder*)coder
+- (instancetype)initWithCoder:(NSCoder*)coder
 {
     self = [super initWithCoder:coder];
     if (self != nil) {
@@ -62,7 +62,7 @@ NSTimeInterval const kBBCyclingLabelDefaultTransitionDuration = 0.3;
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame andTransitionType:(BBCyclingLabelTransitionEffect)transitionEffect;
+- (instancetype)initWithFrame:(CGRect)frame andTransitionType:(BBCyclingLabelTransitionEffect)transitionEffect
 {
     self = [super initWithFrame:frame];
     if (self != nil) {
