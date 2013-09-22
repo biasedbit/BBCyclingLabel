@@ -79,7 +79,7 @@ typedef void(^BBCyclingLabelTransitionBlock)(UILabel* labelToExit, UILabel* labe
 @property(assign, nonatomic) NSLineBreakMode lineBreakMode;
 @property(assign, nonatomic) NSInteger numberOfLines;
 @property(assign, nonatomic) BOOL adjustsFontSizeToFitWidth;
-@property(assign, nonatomic) CGFloat minimumFontSize;
+@property(assign, nonatomic) CGFloat minimumScaleFactor;
 @property(assign, nonatomic) UIBaselineAdjustment baselineAdjustment;
 
 
