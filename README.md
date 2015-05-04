@@ -7,6 +7,16 @@ Instead of using two `UILabel`'s and cross fading them, you can use this compone
 
 Here's a [demo video](http://d.pr/nMcl) of this component running on the demo project `BBCyclingLabelDemo`.
 
+
+## Quick start
+
+`BBCyclingLabel` is available on [CocoaPods](http://cocoapods.org).  Add the following to your `Podfile`:
+
+```ruby
+pod 'BBCyclingLabel', '~> 1.0'
+```
+
+
 ## How it works
 
 Under the hood, `BBCyclingLabel` simply animates transitions between two `UILabels`, which are always cycled when changing text.
@@ -121,8 +131,3 @@ _customLabel.transitionBlock = ^(UILabel* labelToExit, UILabel* labelToEnter) {
     labelToEnter.alpha = 1;
 };
 ```
-
-
-## License
-
-This component is licensed under the Apache Software License 2.0
